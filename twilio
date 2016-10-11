@@ -1,0 +1,12 @@
+from twilio import rest 
+
+account_sid = "AC2d0abc5680e14a6818f1aca548f1d719" # Your Account SID from www.twilio.com/console
+auth_token  = "e2b8c5d4cc34a80fe5a44f31cb7f2e6d"  # Your Auth Token from www.twilio.com/console
+client = rest.TwilioRestClient(account_sid, auth_token)
+
+message = client.messages.create(
+    body="Your a naughty part-timer. Get in the gym...",
+    to="+447854135866",    # Replace with your phone number
+    from_="+441432233248") # Replace with your Twilio number
+
+print(message.sid)
